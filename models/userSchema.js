@@ -12,6 +12,10 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Email is required"],
   },
+  profileImg: {
+    data: Buffer,
+    contentType: String,
+  },
   addedTime: {
     type: Date,
     default: Date.now,
