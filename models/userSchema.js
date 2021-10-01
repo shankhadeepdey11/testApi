@@ -1,4 +1,3 @@
-const { number } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -11,6 +10,13 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: [true, "Email is required"],
+  },
+  profileImg: {
+    data: Buffer,
+    contentType: String,
+  },
+  userToken: {
+    type: String,
   },
   addedTime: {
     type: Date,

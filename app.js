@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 
 const app = express();
 mongoose
@@ -15,6 +17,8 @@ const PORT = 3000;
 app.get("/", (req, res) => res.send("Welcome To My Server"));
 
 app.use(express.json());
+app.use(morgan("tiny"));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/api", require("./routes/api"));
 app.use((err, req, res, next) => {
